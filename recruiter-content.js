@@ -1,0 +1,26 @@
+(() => {
+ const locale=document.documentElement.lang.startsWith('pl')?'pl':document.documentElement.lang.startsWith('en')?'en':'pt';
+ const copy={
+ pt:{availability:'Base no Brasil. Interesse em trabalho remoto com empresas polonesas e abertura à futura relocação para a Polônia. Disponibilidade e condições de mudança a combinar.',label:'Disponibilidade internacional',browse:'Ver os demais projetos ↓',resume:'Currículo em inglês (PDF)',quick:'Ecosys em um minuto',labels:['O desafio','Minha contribuição','Melhoria entregue'],values:['Conectar a descoberta de negócios sem site ao preparo de uma página individual.','Integração de coleta, qualificação, operação no Trello, briefing humano, geração com IA e QA.','Um fluxo rastreável em seis etapas, com retomada, controle de duplicidade e verificação antes da revisão humana.'],note:'Projeto finalizado. A melhoria demonstrada é a integração do processo; não há resultados comerciais mensurados.'},
+ en:{availability:'Based in Brazil. Interested in remote roles with Polish companies and open to future relocation to Poland. Start dates and relocation arrangements to be discussed.',label:'International opportunities',browse:'Browse the other projects ↓',resume:'Download English résumé (PDF)',quick:'Ecosys at a glance',labels:['Challenge','My contribution','Delivered improvement'],values:['Connect the discovery of businesses without a website to the preparation of a tailored landing page.','Integrated discovery, qualification, Trello operations, human-prepared briefs, AI generation, and technical QA.','A traceable six-stage workflow with recovery, deduplication, and checks before human review.'],note:'Completed project. The demonstrated outcome is process integration; commercial results have not been measured.'},
+ pl:{availability:'Mieszkam w Brazylii. Interesuje mnie praca zdalna dla polskiej firmy oraz możliwość relokacji do Polski w przyszłości. Termin rozpoczęcia pracy i warunki relokacji są do uzgodnienia.',label:'Praca międzynarodowa',browse:'Zobacz pozostałe projekty ↓',resume:'Pobierz CV po angielsku (PDF)',quick:'Ecosys w skrócie',labels:['Wyzwanie','Mój wkład','Wdrożone usprawnienie'],values:['Połączyć wyszukiwanie firm bez strony internetowej z przygotowaniem dedykowanej strony docelowej.','Zintegrowałem wyszukiwanie, kwalifikację, obsługę w Trello, brief zatwierdzany przez człowieka, generowanie wspomagane przez AI i testy techniczne.','Sześcioetapowy proces z historią przetwarzania, wznawianiem pracy, deduplikacją i weryfikacją przed przeglądem przez człowieka.'],note:'Projekt ukończony. Udokumentowanym efektem jest połączenie etapów procesu; wyniki handlowe nie były mierzone.'}
+ }[locale];
+ const heading=document.querySelector('#projetos>.section-heading');
+ const browse=document.createElement('a');browse.className='text-link project-jump';browse.href='#project-grid';browse.textContent=copy.browse;heading?.append(browse);
+ const caseIntro=document.querySelector('.case-intro');
+ if(caseIntro){
+  const block=document.createElement('section');block.className='case-at-glance';block.setAttribute('aria-label',copy.quick);
+  const title=document.createElement('h4');title.textContent=copy.quick;block.append(title);
+  const dl=document.createElement('dl');copy.values.forEach((value,i)=>{const row=document.createElement('div'),dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=copy.labels[i];dd.textContent=value;row.append(dt,dd);dl.append(row)});block.append(dl);
+  const note=document.createElement('p');note.textContent=copy.note;block.append(note);caseIntro.after(block);
+ }
+ const contact=document.querySelector('.contact-invitation');
+ if(contact){const note=document.createElement('p');note.className='international-availability';note.setAttribute('aria-label',copy.label);note.textContent=copy.availability;contact.querySelector('.contact-recruiter-links')?.after(note)}
+ document.querySelectorAll('a[href="assets/lucas-soares-curriculo.pdf"]').forEach(a=>{if(locale!=='pt'){a.href='assets/lucas-soares-resume-en.pdf';a.textContent=copy.resume}});
+ if(locale==='pt'){const original=document.querySelector('.about-grid .text-link');if(original){const link=document.createElement('a');link.className='text-link english-resume';link.href='assets/lucas-soares-resume-en.pdf';link.textContent=copy.resume;link.setAttribute('download','');original.after(link)}}
+ document.querySelector('.hero-stack')?.setAttribute('aria-label',locale==='pl'?'Technologie':locale==='en'?'Technologies':'Tecnologias');
+ if(locale!=='pt'){
+  const translations={en:{'Automações':'Automation','Estatística':'Statistics','Antifraude':'Antifraud','Orquestração de IA':'AI orchestration','Automação':'Automation','Relatórios':'Reporting','Controle de caixa':'Cash-flow monitoring','Engenharia de IA':'AI engineering'},pl:{'Automações':'Automatyzacja','Estatística':'Statystyka','Antifraude':'Analiza nadużyć','Orquestração de IA':'Orkiestracja AI','Automação':'Automatyzacja','Relatórios':'Raportowanie','Controle de caixa':'Kontrola przepływów','Engenharia de IA':'Inżynieria AI'}}[locale];
+  document.querySelectorAll('.tags span').forEach(tag=>{if(translations[tag.textContent.trim()])tag.textContent=translations[tag.textContent.trim()]});
+ }
+})();

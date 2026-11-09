@@ -1,0 +1,14 @@
+{
+  "capturedAt": "2026-10-10",
+  "source": "Assina AI/Dashboard/Index.html",
+  "method": "Current read-only frontend served locally and captured with Playwright at 1600 x 1000; converted to WebP with Sharp. 800 px derivatives support responsive delivery.",
+  "screens": {
+    "login": "Real login interface with empty input values; no authentication performed.",
+    "dashboard": "Real dashboard renderer supplied with explicit synthetic local data; no client names, phone numbers or production session used.",
+    "gerencial": "Real management renderer supplied with synthetic totals. Unintegrated channels remain marked unavailable; historical series remain empty.",
+    "exportacao": "Real export form; no export or download executed against a backend.",
+    "meta": "Existing local preview=meta mode and its demonstrative payload. Final production data source remains unintegrated.",
+    "cover": "Playwright capture of a staged HTML composition using the dashboard and Meta captures above. Perspective, lighting and overlap are presentation treatments, not replacement interfaces."
+  },
+  "restrictions": "No backend deployment, production data, credentials, database, spreadsheets, scrapers or synchronization changed or accessed. Numbers do not establish operational performance."
+}

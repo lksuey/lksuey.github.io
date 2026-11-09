@@ -1,0 +1,12 @@
+html.portfolio-restoring body{visibility:hidden}
+/* Returning is continuity, not a second introduction. */
+.portfolio-returning .hero h1,.portfolio-returning .hero .intro,.portfolio-returning .hero .actions{animation:none}
+.portfolio-returning .hero-glyph{animation:none;opacity:1;transform:none}
+/* The raster's intrinsic ratio owns the frame: no letterboxing or cropped copy. */
+body .cinema img,body .portal-cover img{aspect-ratio:auto;object-fit:initial;height:auto;width:100%}
+body .project-card>img{display:block;aspect-ratio:auto;object-fit:contain;height:auto;width:100%}
+.case-hero-copy+.cinema{margin-top:48px}
+.screen-media{overflow:hidden;border-radius:12px;background:#090e0b}
+.case-nav a,.case-footer a{transition:color 160ms ease}
+.case-nav a:hover,.case-footer a:hover{color:var(--green,#b6dba1)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

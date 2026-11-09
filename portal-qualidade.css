@@ -1,0 +1,3 @@
+/* Scoped variation within the existing portfolio case system. */
+.portal-cover img{aspect-ratio:16/9;object-fit:contain}
+@media(max-width:600px){body .portal-cover img{aspect-ratio:16/9;object-fit:contain}}
