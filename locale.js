@@ -6,6 +6,7 @@
 
   const copies = {
     en: {
+      skip: 'Skip to content', casesEyebrow: 'Cases in progress', casesTitle: 'The behind-the-scenes of each solution,<br>coming soon.', casesCopy: 'I am organizing my finished projects to present the challenges, technical decisions, and results of each one.', casesLink: 'Talk to me about my projects <span>↗</span>',
       nav: ['About', 'Expertise', 'Projects', 'Career'], contact: 'Let’s talk <span>↗</span>', language: 'Language', menu: 'Open menu',
       heroEyebrow: 'Mid-level data analyst — nine months building what did not exist before',
       heroTitle: 'I turn<br>data into<br><span class="accent">clear next moves.</span>',
@@ -61,6 +62,7 @@
       dialogEyebrow: 'Ecosys / Engineering inside', dialogTitle: 'Each stage prepares the next.', dialogIntro: 'Explore the data path from discovery to verification. Each stage explains the work and the controls that keep the flow reliable.', dialogTabs: ['Discovery', 'Qualification', 'Operations', 'Human direction', 'AI production', 'Verification'], dialogIO: ['Input', 'Output'], dialogExplain: ['How it works', 'What keeps it running'], dialogComponents: 'Components applied', dialogPrev: '← Previous stage', dialogNext: 'Next stage →', close: 'Close architecture'
     },
     pl: {
+      skip: 'Przejdź do treści', casesEyebrow: 'Projekty w przygotowaniu', casesTitle: 'Kulisy rozwiązań,<br>wkrótce tutaj.', casesCopy: 'Porządkuję ukończone projekty, aby przedstawić wyzwania, decyzje techniczne i rezultaty każdej realizacji.', casesLink: 'Porozmawiajmy o moich projektach <span>↗</span>',
       nav: ['O mnie', 'Kompetencje', 'Projekty', 'Doświadczenie'], contact: 'Porozmawiajmy <span>↗</span>', language: 'Język', menu: 'Otwórz menu',
       heroEyebrow: 'Analityk danych na poziomie mid · Od dziewięciu miesięcy buduję firmowy obszar danych od podstaw',
       heroTitle: 'Zmieniam<br>dane w<br><span class="accent">trafne decyzje.</span>',
@@ -124,6 +126,9 @@
   one('.header nav')?.setAttribute('aria-label', locale === 'pl' ? 'Główna nawigacja' : 'Main navigation');
   html('.nav-contact', c.contact); one('.language-switch')?.setAttribute('aria-label', c.language); one('.menu-toggle')?.setAttribute('aria-label', c.menu);
   text('.hero .eyebrow', c.heroEyebrow); html('.hero h1', c.heroTitle); text('.hero .intro', c.heroIntro); html('.hero-positioning', c.heroPosition); html('.hero .button.primary', c.heroPrimary); html('.hero .text-link', c.heroSecondary); text('.hero-stack>span', c.heroStack); text('.hero-bottom>span', c.heroBottom); html('.hero-bottom a', c.heroContinue);
+  text('.skip', c.skip);
+  const casesEyebrow = [...document.querySelectorAll('.eyebrow')].find(e => /CASES EM PREPARA/i.test(e.textContent));
+  if (casesEyebrow) { casesEyebrow.textContent = c.casesEyebrow; const box = casesEyebrow.parentElement; const h3 = box.querySelector('h3'); const p = box.querySelector('p'); const a = box.querySelector('a.text-link'); if (h3) h3.innerHTML = c.casesTitle; if (p) p.textContent = c.casesCopy; if (a) a.innerHTML = c.casesLink; }
   text('#sobre>.section-label', c.aboutLabel); html('.about-grid h2', c.aboutTitle); html('.about-grid>div:nth-child(2)>p:nth-of-type(1)', c.aboutLead); text('.about-grid>div:nth-child(2)>p:nth-of-type(2)', c.aboutP1); text('.about-grid>div:nth-child(2)>p:nth-of-type(3)', c.aboutP2); html('.about-grid .text-link', c.resume); text('.leadership-statement>span', c.positionLabel); html('.leadership-statement>p', c.position); text('.leadership-statement>small', c.positionNote);
   all('.proof-grid p').forEach((element,index)=>element.textContent=c.proofs[index]); text('.proof-grid>div:nth-child(2) strong', c.proofStrong[0]); text('.proof-grid>div:nth-child(3) strong', c.proofStrong[1]);
   text('#expertise>.section-label', c.expertiseLabel); html('#expertise>.section-heading h2', c.expertiseTitle); text('#expertise>.section-heading>p', c.expertiseIntro);
